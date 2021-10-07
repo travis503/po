@@ -12,6 +12,18 @@ const collection = db.collection('productStyles');
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
+app.get('/products/?:id', (req, res) => {
+  collection.find({"id": `${req.params.id}`}).toArray()
+  .then((styleData) => {
+    console.log('Got request id: ', req.params);
+    res.send(styleData[0]);
+  })
+  .catch((error) => {
+    console.log(error);
+    res.send(error);
+  })
+})
+
 app.get('/products/?:id/styles', (req, res) => {
   collection.find({"id": `${req.params.id}`}).toArray()
   .then((styleData) => {

@@ -10,7 +10,7 @@ const collection = db.collection('productStyles');
 
 // app.use(express.static('./client/dist'));
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/howdy', (req, res) => res.send('Howdy World!'));
 
 app.get('/products/?:id', (req, res) => {
   collection.find({"id": `${req.params.id}`}).toArray()

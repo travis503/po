@@ -53,7 +53,7 @@ app.get('/loaderio-858c789ec2ba570bf1c31bf51b3526f8.txt', function(req, res){
   var fileName = 'loaderio-858c789ec2ba570bf1c31bf51b3526f8.txt';
   res.sendFile(fileName, options, function (err) {
       if (err) {
-          next(err);
+          console.log(err);
       } else {
           console.log('Sent:', fileName);
       }

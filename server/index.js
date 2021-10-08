@@ -35,12 +35,27 @@ app.get('/products/?:id/styles', (req, res) => {
   })
 })
 
-app.get('/loaderio-858c789ec2ba570bf1c31bf51b3526f8.txt', (req, res) => {
-  res.sendFile('../loaderio-858c789ec2ba570bf1c31bf51b3526f8.txt')
-  .catch((error) => {
-    console.log('Error sending loader.io file: ', error);
-    res.send(error);
-  })
-})
+// app.get('/loaderio-858c789ec2ba570bf1c31bf51b3526f8.txt', (req, res) => {
+//   res.sendFile('../loaderio-858c789ec2ba570bf1c31bf51b3526f8.txt')
+//   .catch((error) => {
+//     console.log('Error sending loader.io file: ', error);
+//     res.send(error);
+//   })
+// })
+
+app.get('/loaderio-858c789ec2ba570bf1c31bf51b3526f8.txt', function(req, res){
+  var options = {
+      root: path.join(__dirname)
+  };
+
+  var fileName = 'loaderio-858c789ec2ba570bf1c31bf51b3526f8.txt';
+  res.sendFile(fileName, options, function (err) {
+      if (err) {
+          next(err);
+      } else {
+          console.log('Sent:', fileName);
+      }
+  });
+});
 
 app.listen(port, () => console.log(`SDC listening on port ${port}!`));

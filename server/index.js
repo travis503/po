@@ -35,4 +35,12 @@ app.get('/products/?:id/styles', (req, res) => {
   })
 })
 
+app.get('/loaderio-858c789ec2ba570bf1c31bf51b3526f8.txt', (req, res) => {
+  res.sendFile('../loaderio-858c789ec2ba570bf1c31bf51b3526f8.txt')
+  .catch((error) => {
+    console.log('Error sending loader.io file: ', error);
+    res.send(error);
+  })
+})
+
 app.listen(port, () => console.log(`SDC listening on port ${port}!`));

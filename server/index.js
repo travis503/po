@@ -3,7 +3,6 @@ const app = express();
 const port = 3000;
 
 const client = require('../db/index');
-const { findStylesByID } = require('../db/models.js');
 
 const db = client.db('SDC');
 const collection = db.collection('productStyles');

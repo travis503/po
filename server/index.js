@@ -13,7 +13,8 @@ const collection = db.collection('productStyles');
 
 app.get('/howdy', ((req, res) => {
   console.log('Saying howdy!');
-  res.send('Howdy World!')));
+  res.send('Howdy World!')
+}));
 
 app.get('/products/?:id', (req, res) => {
   collection.find({"id": `${req.params.id}`}).toArray()

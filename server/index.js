@@ -11,7 +11,9 @@ const collection = db.collection('productStyles');
 
 // app.use(express.static('./client/dist'));
 
-app.get('/howdy', (req, res) => res.send('Howdy World!'));
+app.get('/howdy', ((req, res) => {
+  console.log('Saying howdy!');
+  res.send('Howdy World!')));
 
 app.get('/products/?:id', (req, res) => {
   collection.find({"id": `${req.params.id}`}).toArray()
